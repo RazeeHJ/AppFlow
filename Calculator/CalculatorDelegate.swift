@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol CalculatorDelegate {
+    associatedtype Features
+
+    func calculate(with features: Features)
+    func didCompleteLoad(with result: Bool)
+}

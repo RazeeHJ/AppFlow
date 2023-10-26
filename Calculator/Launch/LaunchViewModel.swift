@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+class LaunchViewModel: ObservableObject {
+    var action: () async -> Void?
+    
+    init(action: @escaping () async  -> Void?) {
+        self.action = action
+    }
+    
+    @MainActor
+    func load() async {
+        await action()
+    }
+}

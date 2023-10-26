@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct LaunchScreen: View {
+//    @ObservedObject var viewModel: LaunchViewModel
+    
+//    init(viewModel: LaunchViewModel) {
+//        self.viewModel = viewModel
+//    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ProgressView()
     }
 }
 
+#if DEBUG
 #Preview {
     LaunchScreen()
 }
+#endif

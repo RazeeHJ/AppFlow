@@ -14,7 +14,6 @@ protocol RemoteConfigs {
     var remoteConfigurationKey: String { get }
     
     func extractPrimitive(from remoteConfigValue: RemoteConfiguration.RemoteValueWrapper) -> RemoteConfigPrimitiveValue?
-    
     func value(from remoteValue: RemoteConfigPrimitiveValue) -> Value?
 }
 

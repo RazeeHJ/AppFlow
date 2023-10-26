@@ -8,21 +8,22 @@
 import Firebase
 
 protocol ConfigLoader {
-    func load() async throws
+    func activate() async throws
 }
 
-struct RemoteConfigLoader: ConfigLoader {
+class RemoteConfigLoader: ConfigLoader {
     private var remoteConfig: RemoteConfig
-
-    init(remoteConfig: RemoteConfig) {
+    
+    init(remoteConfig: RemoteConfig = RemoteConfig.remoteConfig()) {
         self.remoteConfig = remoteConfig
         
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
-        remoteConfig.configSettings = settings
+        self.remoteConfig.configSettings = settings
     }
     
-    func load() async throws {
-        try await self.remoteConfig.fetchAndActivate()
+    func activate() async throws {
+        try await remoteConfig.fetchAndActivate()
     }
 }
+
